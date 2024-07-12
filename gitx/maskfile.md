@@ -19,9 +19,9 @@ git commit -m "$SUMMARY"
 > commit & push for current branch
 
 ```sh
-source "$MASKFILE_DIR/.env"
+source "$MASKFILE_DIR/../.env"
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
-$MASK git commit && \
+$MASK commit && \
 git push origin $BRANCH && \
 echo $SUCCESS_COLOR"Success to Push origin/$BRANCH"$NO_COLOR || \
 echo $ERROR_COLOR"Failed to Push origin/$BRANCH"$NO_COLOR
@@ -52,7 +52,7 @@ git fetch -p
 > merge current branch to target branch & switch to target branch
 
 ```sh
-source "$MASKFILE_DIR/.env"
+source "$MASKFILE_DIR/../.env"
 OTHERS=$(git branch | grep -v "\*")
 CHOSEN=$(echo "$OTHERS" | gum choose)
 CURRENT=$(git rev-parse --abbrev-ref HEAD)
